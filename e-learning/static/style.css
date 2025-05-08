@@ -1,0 +1,28 @@
+body {
+    background-color: #f3f6fa;
+    font-family: sans-serif;
+    color: #343a40;
+    padding: 2rem;
+}
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ccc;
+}
+input, select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+button {
+    background-color: #2961ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+}
+.result {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}

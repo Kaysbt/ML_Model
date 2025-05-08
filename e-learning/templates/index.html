@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>🎓 Prédiction de Complétion de Cours</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🎯 Prédire la Complétion d’un Cours en Ligne</h1>
+    <form method="POST">
+        <label>Temps passé sur le cours (heures):</label>
+        <input type="number" step="0.1" name="TimeSpentOnCourse" required><br>
+
+        <label>Nombre de vidéos regardées:</label>
+        <input type="number" name="NumberOfVideosWatched" required><br>
+
+        <label>Nombre de quiz pris:</label>
+        <input type="number" name="NumberOfQuizzesTaken" required><br>
+
+        <label>Score moyen aux quiz (%):</label>
+        <input type="number" step="0.1" name="QuizScores" required><br>
+
+        <label>Taux de complétion actuel (%):</label>
+        <input type="number" step="0.1" name="CompletionRate" required><br>
+
+        <label>Type d'appareil utilisé:</label>
+        <select name="DeviceType">
+            <option value="Desktop">Desktop</option>
+            <option value="Mobile">Mobile</option>
+        </select><br>
+
+        <label>Catégorie du cours:</label>
+        <select name="CourseCategory">
+            <option>Programming</option>
+            <option>Science</option>
+            <option>Health</option>
+            <option>Business</option>
+            <option>Arts</option>
+        </select><br>
+
+        <button type="submit">🔮 Prédire la complétion</button>
+    </form>
+
+    {% if result %}
+        <div class="result">
+            {% if result.prediction == 1 %}
+                ✅ L'étudiant est <strong>susceptible de terminer</strong> le cours. (Probabilité : {{ result.probability }})
+            {% else %}
+                ⚠️ L'étudiant est <strong>à risque d'abandon</strong>. (Probabilité : {{ result.probability }})
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>

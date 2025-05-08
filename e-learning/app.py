@@ -1,6 +1,16 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
+
+
+# ========== 🔑 API Key Validation (Required for Render) ===========
+API_KEY = os.environ.get("API_KEY", "")
+
+if API_KEY != os.environ.get("RENDER_API_KEY"):
+    st.error("🚫 Invalid API Key. Please set the correct API_KEY in your environment variables.")
+    st.stop()
+
 
 # ========== 🎯 Chargement du modèle et des features entraînés ==========
 model = joblib.load("random_forest_model.pkl")
